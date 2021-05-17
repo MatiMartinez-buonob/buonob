@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { Link } from "gatsby"
 
 const Logo = () => {
-  return <Text>Buono</Text>
+  return <Text to="/">Buono</Text>
 }
 
 export default Logo
