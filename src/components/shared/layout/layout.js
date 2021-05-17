@@ -4,12 +4,13 @@ import "./layout.css"
 
 import Navbar from "../navbar/Navbar"
 import Footer from "../footer/Footer"
+import styled from "styled-components"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, padding }) => {
   return (
     <>
       <Navbar />
-      <main>{children}</main>
+      <Main padding={padding}>{children}</Main>
       <Footer />
     </>
   )
@@ -20,3 +21,7 @@ Layout.propTypes = {
 }
 
 export default Layout
+
+const Main = styled.main`
+  padding-top: ${p => (p.padding ? "120px" : "0")};
+`

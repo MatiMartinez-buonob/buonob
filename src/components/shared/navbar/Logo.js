@@ -2,12 +2,8 @@ import React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
 
-const Logo = ({ scroll, currentUrl }) => {
-  return (
-    <Text scroll={scroll} currentUrl={currentUrl}>
-      Buono
-    </Text>
-  )
+const Logo = () => {
+  return <Text to="/">Buono</Text>
 }
 
 export default Logo

@@ -7,22 +7,16 @@ import Layout from "../components/shared/layout/layout"
 
 const Contact = () => {
   return (
-    <Layout>
-      <ContactContainer>
-        <Header />
-        <Grid>
-          <Info />
-        </Grid>
-      </ContactContainer>
+    <Layout padding>
+      <Header />
+      <Grid>
+        <Info />
+      </Grid>
     </Layout>
   )
 }
 
 export default Contact
-
-const ContactContainer = styled.div`
-  padding-top: 120px;
-`
 
 const Grid = styled.div`
   display: grid;

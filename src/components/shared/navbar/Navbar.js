@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 
+import { useLocation } from "@reach/router"
 import { Link } from "gatsby"
-import { globalHistory } from "@reach/router"
 import { FaTimes, FaBars } from "react-icons/fa"
 import Logo from "./Logo"
 
-export default function Navbar({ location }) {
-  const currentUrl = globalHistory.location.pathname
+export default function Navbar(props) {
+  const location = useLocation()
   // STATE
   const [scroll, setScroll] = useState(false)
   const [menu, setMenu] = useState(false)
+  const [inHome, setInHome] = useState(true)
 
   // EFFECTS
   useEffect(() => {
@@ -25,6 +26,14 @@ export default function Navbar({ location }) {
     window.addEventListener("scroll", changeNav)
   }, [])
 
+  useEffect(() => {
+    if (location.pathname === "/") {
+      setInHome(true)
+    } else {
+      setInHome(false)
+    }
+  }, [location.pathname])
+
   // FUNCTIONS
   function handleMenu() {
     setMenu(!menu)
@@ -32,7 +41,7 @@ export default function Navbar({ location }) {
 
   // RETURN
   return (
-    <Header scroll={scroll}>
+    <Header $scroll={scroll} $inHome={inHome}>
       <MobileIcon onClick={handleMenu}>
         {menu ? (
           <FaTimes size="30px" color="#ababab" />
@@ -40,24 +49,24 @@ export default function Navbar({ location }) {
           <FaBars size="30px" color="#ababab" />
         )}
       </MobileIcon>
-      <Nav menu={menu}>
-        <NavLink scroll={scroll} currentUrl={currentUrl} to="/">
+      <Nav $menu={menu}>
+        <NavLink $scroll={scroll} $inHome={inHome} to="/">
           Inicio
         </NavLink>
-        <NavLink scroll={scroll} currentUrl={currentUrl} to="/organic-wines">
+        <NavLink $scroll={scroll} $inHome={inHome} to="/">
           Vinos Orgánicos
         </NavLink>
-        <NavLink scroll={scroll} currentUrl={currentUrl} to="/">
+        <NavLink $scroll={scroll} $inHome={inHome} to="/products">
           Productos
         </NavLink>
-        <Logo scroll={scroll} currentUrl={currentUrl} />
-        <NavLink scroll={scroll} currentUrl={currentUrl} to="/">
+        <Logo />
+        <NavLink $scroll={scroll} $inHome={inHome} to="/">
           Nosotros
         </NavLink>
-        <NavLink scroll={scroll} currentUrl={currentUrl} to="/">
+        <NavLink $scroll={scroll} $inHome={inHome} to="/">
           Ubicación
         </NavLink>
-        <NavLink scroll={scroll} currentUrl={currentUrl} to="/contact">
+        <NavLink $scroll={scroll} $inHome={inHome} to="/contact">
           Contacto
         </NavLink>
       </Nav>
@@ -66,9 +75,10 @@ export default function Navbar({ location }) {
 }
 
 const Header = styled.header`
-  background-color: ${props => (props.scroll ? "#ffffff" : "transparent")};
-  border-bottom: ${props => (props.scroll ? "1px solid #eeeeee" : "none")};
-  height: ${props => (props.scroll ? "80px" : "120px")};
+  background-color: ${p =>
+    p.$scroll ? "#ffffff" : p.$inHome ? "transparent" : "#ffffff"};
+  border-bottom: ${props => (props.$scroll ? "1px solid #ababab50" : "none")};
+  height: ${props => (props.$scroll ? "80px" : "120px")};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -104,7 +114,7 @@ const Nav = styled.nav`
     height: max-content;
     position: absolute;
     top: 80px;
-    left: ${props => (props.menu ? "0" : "-100%")};
+    left: ${props => (props.$menu ? "0" : "-100%")};
     opacity: 1;
     transition: all 0.2s ease;
     background-color: #ffffff;
@@ -114,12 +124,7 @@ const Nav = styled.nav`
 const NavLink = styled(Link)`
   font-size: 0.8rem;
   font-weight: 600;
-  color: ${props =>
-    props.scroll
-      ? "#ababab"
-      : props.currentUrl === "/"
-      ? "#ffffff"
-      : "#ababab"};
+  color: ${p => (p.$scroll ? "#ababab" : p.$inHome ? "#ffffff" : "#ababab")};
   cursor: pointer;
   text-transform: uppercase;
 
