@@ -61,7 +61,6 @@ const IntroContainer = styled.div`
 const TitleWrapper = styled.div`
   display: flex;
   justify-content: center;
-  text-align: center;
 `
 
 const Title = styled.h1`

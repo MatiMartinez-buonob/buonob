@@ -53,14 +53,14 @@ export default function Navbar(props) {
         <NavLink $scroll={scroll} $inHome={inHome} to="/">
           Inicio
         </NavLink>
-        <NavLink $scroll={scroll} $inHome={inHome} to="/">
+        <NavLink $scroll={scroll} $inHome={inHome} to="/organic-wines">
           Vinos Orgánicos
         </NavLink>
         <NavLink $scroll={scroll} $inHome={inHome} to="/products">
           Productos
         </NavLink>
         <Logo />
-        <NavLink $scroll={scroll} $inHome={inHome} to="/">
+        <NavLink $scroll={scroll} $inHome={inHome} to="/about-us">
           Nosotros
         </NavLink>
         <NavLink $scroll={scroll} $inHome={inHome} to="/">

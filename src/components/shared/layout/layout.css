@@ -4,13 +4,16 @@
 html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
   overflow-y: scroll;
 }
+
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #ababab;
+  background-color: #ffffff;
   font-family: "Catamaran", sans-serif;
   font-weight: normal;
   word-wrap: break-word;
@@ -19,7 +22,6 @@ body {
   -ms-font-feature-settings: "kern", "liga", "clig", "calt";
   -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
   font-feature-settings: "kern", "liga", "clig", "calt";
-  background-color: #ffffff;
 }
 
 a {
@@ -48,6 +50,7 @@ h2,
 p,
 span {
   margin: 0;
+  line-height: 1.1;
 }
 
 button {
@@ -59,3 +62,9 @@ button {
     font-size: 14px;
   }
 }
+
+/*
+ #c2997e
+ #343130
+ #ababab
+*/

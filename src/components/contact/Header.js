@@ -18,8 +18,8 @@ const HeaderContainer = styled.div`
 `
 
 const Title = styled.h1`
-  font-size: 2rem;
-  font-weight: 300;
-  text-transform: uppercase;
+  font-size: 3rem;
+  font-weight: 700;
+  text-transform: lowercase;
   font-family: "Taviraj", serif;
 `
