@@ -1,24 +1,28 @@
 import React from "react"
 import styled from "styled-components"
+import { graphql, useStaticQuery } from "gatsby"
+
 import WineCard from "./WineCard"
 
-const data = [
-  { id: 0 },
-  { id: 1 },
-  { id: 2 },
-  { id: 3 },
-  { id: 4 },
-  { id: 5 },
-  { id: 7 },
-  { id: 8 },
-  { id: 9 },
-]
-
 const WinesGrid = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      images: allFile(filter: { relativeDirectory: { eq: "wines" } }) {
+        nodes {
+          childImageSharp {
+            fluid(maxWidth: 1200) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
+  `)
+
   return (
     <Container>
-      {data.map(item => (
-        <WineCard index={item.id} key={item.id} />
+      {data.images.nodes.map((item, index) => (
+        <WineCard item={item} key={index} />
       ))}
     </Container>
   )

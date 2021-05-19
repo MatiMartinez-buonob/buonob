@@ -23,7 +23,6 @@ const Container = styled.div`
   text-align: center;
   row-gap: 1.5rem;
   padding: 4rem 8rem;
-  color: #ababab;
 `
 
 const Title = styled.h1`

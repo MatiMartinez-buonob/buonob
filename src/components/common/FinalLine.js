@@ -4,6 +4,7 @@ import styled from "styled-components"
 const FinalLine = () => {
   return (
     <Container>
+      <Line />
       <Text>Lorem ipsum dolor sit amet</Text>
     </Container>
   )
@@ -13,6 +14,7 @@ export default FinalLine
 
 const Container = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   row-gap: 1.5rem;

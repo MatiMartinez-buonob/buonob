@@ -1,12 +1,13 @@
 import React from "react"
 import styled from "styled-components"
-import Contact from "./components/Contact"
-import Info from "./components/Info"
+import Contact from "./Contact"
 
 const Footer = () => {
   return (
     <FooterContainer>
-      <Info />
+      <Title>
+        Lorem ipsum <br /> dolor sit amet consectetur
+      </Title>
       <Contact />
     </FooterContainer>
   )
@@ -15,9 +16,17 @@ const Footer = () => {
 export default Footer
 
 const FooterContainer = styled.div`
-  background-color: #343130;
-  padding: 4rem 8rem;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  padding: 6rem 8rem;
+  background-color: #eee;
+  color: #343130;
+`
+
+const Title = styled.h1`
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 3rem;
+  text-transform: uppercase;
 `

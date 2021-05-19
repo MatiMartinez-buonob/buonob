@@ -2,28 +2,15 @@ import React from "react"
 import styled from "styled-components"
 
 import Image from "gatsby-image"
-import { graphql, useStaticQuery } from "gatsby"
 import DescriptionCard from "./DescriptionCard"
 import TransitionText from "./TransitionText"
 
-const WineCard = ({ index }) => {
-  const data = useStaticQuery(graphql`
-    query {
-      bg: file(relativePath: { eq: "bg.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 1200) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `)
-
+const WineCard = ({ item }) => {
   return (
-    <Container $index={index}>
+    <Container>
       <ImageWrapper>
         <WrapperAbsolute>
-          <FakeImg fluid={data.bg.childImageSharp.fluid} />
+          <FakeImg fluid={item.childImageSharp.fluid} />
         </WrapperAbsolute>
         <ColorAbsolute>
           <TransitionText />
