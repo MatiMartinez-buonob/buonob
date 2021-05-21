@@ -21,7 +21,19 @@ const Container = styled.div`
   align-items: center;
   text-align: center;
   row-gap: 1rem;
-  padding: 0 6rem;
+  padding: 2rem 1rem;
+
+  @media (min-width: 375px) {
+    padding: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    padding: 2rem 4rem;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 2rem 6rem;
+  }
 `
 
 const Title = styled.h1`

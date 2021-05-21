@@ -27,20 +27,34 @@ export default WineCard
 
 const Container = styled.div`
   display: flex;
-  align-items: center;
+  flex-direction: column;
 
-  :nth-of-type(4n + 3),
-  :nth-of-type(4n) {
-    display: flex;
-    flex-direction: row-reverse;
+  @media (min-width: 576px) {
+    flex-direction: row;
+
+    :nth-of-type(2n) {
+      flex-direction: row-reverse;
+    }
+  }
+
+  @media (min-width: 992px) {
+    :nth-of-type(n) {
+      flex-direction: row;
+    }
+
+    :nth-of-type(4n + 3),
+    :nth-of-type(4n) {
+      display: flex;
+      flex-direction: row-reverse;
+    }
   }
 `
 
 const ImageWrapper = styled.div`
   position: relative;
   cursor: pointer;
-  height: 100%;
-  width: 50%;
+  height: 350px;
+  width: 100%;
 
   :hover span:nth-of-type(1) {
     left: 90%;
@@ -52,6 +66,11 @@ const ImageWrapper = styled.div`
     top: 90%;
     opacity: 1;
     visibility: visible;
+  }
+
+  @media (min-width: 576px) {
+    height: 100%;
+    width: 50%;
   }
 `
 

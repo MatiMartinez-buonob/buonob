@@ -23,9 +23,13 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 0.5rem;
-  padding: 3rem;
+  padding: 4rem;
   background-color: #343130;
-  width: 50%;
+  width: 100%;
+
+  @media (min-width: 576px) {
+    width: 50%;
+  }
 `
 
 const Name = styled.h1`

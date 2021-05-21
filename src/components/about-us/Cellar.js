@@ -20,7 +20,7 @@ const Cellar = () => {
 
   return (
     <Container>
-      <FakeImg fluid={data.bg.childImageSharp.fluid} />
+      <Image fluid={data.bg.childImageSharp.fluid} />
       <InfoContent
         title="Bodega"
         description="La bodega cuenta con una construcción en dos plantas una de ellas subterránea para la elaboración y conservación de vinos.   Su equipamiento responde a los requerimientos tecnológicos actuales.  En ella se elaboran sólo vinos varietales orgánicos aunando experiencia, ciencia y arte del buen hacer vino. El enólogo y presidente de la empresa es el Lic. Daniel Buono,  profesional con dos títulos en enología y más de 20 años de experiencia.  Él ha trabajado en diversos emprendimientos, muchos de ellos orientados a la exportación."
@@ -32,8 +32,11 @@ const Cellar = () => {
 export default Cellar
 
 const Container = styled.div`
-  display: grid;
-  grid-template-columns: 3fr 2fr;
-`
+  display: flex;
+  flex-direction: column;
 
-const FakeImg = styled(Image)``
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+  }
+`

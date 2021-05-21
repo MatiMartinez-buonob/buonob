@@ -43,8 +43,20 @@ const Container = styled.div`
   align-items: center;
   text-align: center;
   row-gap: 1.5rem;
-  padding: 4rem 8rem;
+  padding: 2rem 1rem;
   color: #ababab;
+
+  @media (min-width: 375px) {
+    padding: 4rem 2rem;
+  }
+
+  @media (min-width: 576px) {
+    padding: 4rem;
+  }
+
+  @media (min-width: 768px) {
+    padding: 4rem 8rem;
+  }
 `
 
 const TitleWrapper = styled.div`

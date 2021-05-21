@@ -19,14 +19,27 @@ const FooterContainer = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 1rem;
-  padding: 6rem 8rem;
+  padding: 4rem 2rem;
   background-color: #eee;
   color: #343130;
+
+  @media (min-width: 576px) {
+    padding: 4rem;
+  }
+
+  @media (min-width: 768px) {
+    padding: 6rem 8rem;
+  }
 `
 
 const Title = styled.h1`
-  font-size: 2rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
   font-weight: 300;
-  line-height: 3rem;
   text-transform: uppercase;
+
+  @media (min-width: 576px) {
+    font-size: 2rem;
+    line-height: 3rem;
+  }
 `

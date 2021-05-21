@@ -20,7 +20,7 @@ const History = () => {
 
   return (
     <Container>
-      <FakeImg fluid={data.bg.childImageSharp.fluid} />
+      <Image fluid={data.bg.childImageSharp.fluid} />
       <InfoContent
         title="Historia"
         description="El siglo pasado fue testigo del nacimiento de dos personas en distintas
@@ -43,8 +43,11 @@ const History = () => {
 export default History
 
 const Container = styled.div`
-  display: grid;
-  grid-template-columns: 6fr 4fr;
-`
+  display: flex;
+  flex-direction: column;
 
-const FakeImg = styled(Image)``
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+`
