@@ -24,7 +24,7 @@ const Vineyard = () => {
         title="Viñedos"
         description="Con unas 80 hectáreas de viñedos orgánicos propios Benito Buono ocupa todos sus días en cuidar de sus vides ubicadas en el oasis Central de Mendoza: Alto Salvador, Chapanay, El Central, y Costa de Araujo son los distritos donde se encuentran estas fincas que producen sólo uvas varietales: Chardonnay, Sauvignon Blanc, Malbec, Merlot, Shiraz Sangiovese y Cabernet Sauvignon.  Los viñedos están ubicados a 980 metros de altura en una zona caracterizada por sus días cálidos y soleados con noches frescas. El sueldo es arenoso y muy permeable, lo que junto al agua blanda constituye un ecosistema muy apropiado para el cultivo de estas uvas orgánicas."
       />
-      <FakeImg fluid={data.bg.childImageSharp.fluid} />
+      <Image fluid={data.bg.childImageSharp.fluid} />
     </Container>
   )
 }
@@ -32,8 +32,11 @@ const Vineyard = () => {
 export default Vineyard
 
 const Container = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-`
+  display: flex;
+  flex-direction: column-reverse;
 
-const FakeImg = styled(Image)``
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+`

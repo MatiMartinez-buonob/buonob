@@ -31,6 +31,11 @@ const WinesGrid = () => {
 export default WinesGrid
 
 const Container = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 576px) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  }
 `

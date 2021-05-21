@@ -6,7 +6,7 @@ import { Link } from "gatsby"
 import { FaTimes, FaBars } from "react-icons/fa"
 import Logo from "./Logo"
 
-export default function Navbar(props) {
+export default function Navbar() {
   const location = useLocation()
   // STATE
   const [scroll, setScroll] = useState(false)
@@ -45,6 +45,7 @@ export default function Navbar(props) {
   // RETURN
   return (
     <Header $scroll={scroll} $inHome={inHome}>
+      <Logo />
       <MobileIcon onClick={handleMenu}>
         {menu ? (
           <FaTimes size="30px" color="#ababab" />
@@ -62,7 +63,7 @@ export default function Navbar(props) {
         <NavLink $scroll={scroll} $inHome={inHome} to="/products">
           Productos
         </NavLink>
-        <Logo />
+        <Logo middle />
         <NavLink $scroll={scroll} $inHome={inHome} to="/about-us">
           Nosotros
         </NavLink>
@@ -83,8 +84,9 @@ const Header = styled.header`
   border-bottom: ${props => (props.$scroll ? "1px solid #ababab50" : "none")};
   height: ${props => (props.$scroll ? "80px" : "120px")};
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  padding: 0 2rem;
   font-size: 1rem;
   position: fixed;
   top: 0;
@@ -95,12 +97,8 @@ const Header = styled.header`
   box-shadow: ${props =>
     props.scroll ? "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px" : "none"};
 
-  @media (max-width: 768px) {
-    padding: 0 2rem;
-  }
-
-  @media (max-width: 576px) {
-    padding: 0 1rem;
+  @media (min-width: 768px) {
+    justify-content: center;
   }
 `
 
@@ -110,7 +108,7 @@ const Nav = styled.nav`
   column-gap: 3rem;
   z-index: 1;
 
-  @media (max-width: 576px) {
+  @media (max-width: 768px) {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -131,7 +129,7 @@ const NavLink = styled(Link)`
   cursor: pointer;
   text-transform: uppercase;
 
-  @media (max-width: 576px) {
+  @media (max-width: 768px) {
     font-size: 1.8rem;
     padding: 1rem 0;
     width: 100%;
@@ -144,7 +142,7 @@ const MobileIcon = styled.div`
   display: none;
   height: 30px;
 
-  @media (max-width: 576px) {
+  @media (max-width: 768px) {
     display: block;
     cursor: pointer;
   }

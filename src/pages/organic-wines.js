@@ -7,7 +7,7 @@ import Layout from "../components/shared/layout/layout"
 const OrganicWines = () => {
   return (
     <Layout padding>
-      <SEO title="Buono" />
+      <SEO title="Vinos Orgánicos" />
       <Intro />
     </Layout>
   )

@@ -17,9 +17,22 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
   row-gap: 1.5rem;
-  padding: 6rem 8rem;
+  padding: 2rem 1rem;
   color: #ababab;
+
+  @media (min-width: 375px) {
+    padding: 2rem;
+  }
+
+  @media (min-width: 576px) {
+    padding: 4rem;
+  }
+
+  @media (min-width: 768px) {
+    padding: 6rem 8rem;
+  }
 `
 
 const Text = styled.h2`
