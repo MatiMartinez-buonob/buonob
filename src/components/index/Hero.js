@@ -77,6 +77,7 @@ const InfoWrapper = styled.div`
   color: #ffffff;
   row-gap: 2rem;
   z-index: 1;
+  font-family: "Taviraj", serif;
 `
 
 const Title = styled.h1`

@@ -24,6 +24,9 @@ export default function Navbar(props) {
     }
     changeNav()
     window.addEventListener("scroll", changeNav)
+    return () => {
+      window.removeEventListener("scroll", changeNav)
+    }
   }, [])
 
   useEffect(() => {
